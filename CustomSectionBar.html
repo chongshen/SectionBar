@@ -1,0 +1,131 @@
+﻿<html>
+<head>
+    <title></title>
+    <!--
+        This is a SectionBar Web Resource. Insert this HTML as a WebResource on top of the CRM Form Section that you want to customize.
+        In the Web Resource Properties window find the General tab.
+        Type the title (e.g. My Custom Section Name) of the section bar in the Custom Parameter(data) field
+        at the Web Resource Properties section.
+    -->
+
+    <meta charset="utf-8">
+    <style type="text/css">
+        .ms-crm-Form-CustomSectionBar {
+            color: #FFFFFF !important;
+            background: -webkit-linear-gradient(left bottom, #2C6EC8,#FFFFFF);
+            background: -ms-linear-gradient(0deg, #2C6EC8,#FFFFFF);
+            background: -moz-linear-gradient(left, #2C6EC8,#FFFFFF);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2C6EC8', endColorstr='#FFFFFF',GradientType=1 );
+            width: 100%;
+            padding-bottom: 1px;
+            padding-left: 10px;
+            font-family: 'Segoe UI';
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: -15px;
+            position: absolute;
+            top: 0;
+        }
+
+        .ms-crm-Form-CustomSectionBar-vanilla {
+            color: #FFFFFF !important;
+            background: -webkit-linear-gradient(left bottom, #002050,#FFFFFF);
+            background: -ms-linear-gradient(0deg, #002050,#FFFFFF);
+            background: -moz-linear-gradient(left, #002050,#FFFFFF);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#002050', endColorstr='#FFFFFF',GradientType=1 );
+            width: 100%;
+            padding-bottom: 1px;
+            padding-left: 10px;
+            font-family: 'Segoe UI';
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: -15px;
+            position: absolute;
+            top: 0;
+        }
+
+        .ms-crm-Form-CustomSectionBar-RedWhite {
+            background: -webkit-radial-gradient(#D0D0D0, #FFFFFF);
+            background: -ms-radial-gradient(top, #D0D0D0, #FFFFFF);
+            background: -moz-radial-gradient(#D0D0D0, #080808);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#555555', endColorstr='#FFFFFF',GradientType=1 );
+        }
+
+        .ms-crm-Form-CustomSectionBar-OrangeWhite {
+            background: -webkit-radial-gradient(#D0D0D0, #FFFFFF);
+            background: -ms-radial-gradient(top, #D0D0D0, #FFFFFF);
+            background: -moz-radial-gradient(#D0D0D0, #080808);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#555555', endColorstr='#FFFFFF',GradientType=1 );
+        }
+
+        .ms-crm-Form-CustomSectionBar-BlueGray {
+            color: #FFFFFF !important;
+            background: -webkit-linear-gradient(#2C6EC8,#FFFFFF);
+            background: -ms-linear-gradient(0deg, #2C6EC8,#FFFFFF);
+            background: -moz-linear-gradient(#2C6EC8,#FFFFFF);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2C6EC8', endColorstr='#FFFFFF',GradientType=1 );
+            width: 100%;
+            padding-bottom: 1px;
+            padding-left: 10px;
+            font-family: Segoe;
+            font-size: 12px;
+            margin-left: -15px;
+            position: absolute;
+            top: 0;
+        }
+    </style>
+
+
+    <meta>
+    <meta>
+    <meta>
+    <meta>
+    <meta>
+    <meta>
+    <meta>
+    <meta>
+    <meta>
+    <meta>
+</head>
+<body style="height: 20px; overflow-wrap: break-word; word-wrap: break-word;">
+    <script>
+    function getDataParam() {
+    //Get the any query string parameters and load them
+    //into the vals array
+
+    var vals = new Array();
+    if (location.search != "") {
+    vals = location.search.substr(1).split("&");
+    for (var i in vals) {
+    vals[i] = vals[i].replace(/\+/g, " ").split("=");
+    }
+    //look for the parameter named 'data'
+    var found = false;
+    for (var i in vals) {
+    if (vals[i][0].toLowerCase() == "data") {
+    return vals[i][1];
+    found = true;
+    break;
+    }
+    }
+    if (!found)
+    { return""; }
+    }
+    else {
+    return "";
+    }
+    }
+
+    </script>
+
+    <!-- This is a custom section bar that is placed on top of each section on the CRM form-->
+    ﻿     <div class="ms-crm-Form-CustomSectionBar-vanilla" id="customSectionBar"></div>
+
+    <script>
+        var sectionBarLabel = getDataParam();
+        document.getElementById('customSectionBar').innerHTML = sectionBarLabel.replace(/%20/g," ");
+    </script>
+
+
+</body>
+</html>
